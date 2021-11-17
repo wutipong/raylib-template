@@ -24,9 +24,9 @@ target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 
 # Checks if OSX and links appropriate frameworks (only required on MacOS)
 if (APPLE)
-    target_link_libraries(${PROJECT_NAME} "-framework IOKit")
-    target_link_libraries(${PROJECT_NAME} "-framework Cocoa")
-    target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
+    target_link_libraries(${PROJECT_NAME} PRIVATE "-framework IOKit")
+    target_link_libraries(${PROJECT_NAME} PRIVATE "-framework Cocoa")
+    target_link_libraries(${PROJECT_NAME} PRIVATE "-framework OpenGL")
 endif()
 
 
