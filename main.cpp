@@ -8,7 +8,7 @@ int main()
     InitWindow(screenWidth, screenHeight, "raylib-template");
     SetTargetFPS(60);
 
-    while(!WindowShouldClose())
+    while (!WindowShouldClose())
     {
         BeginDrawing();
         {
