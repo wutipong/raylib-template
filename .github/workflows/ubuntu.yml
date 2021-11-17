@@ -14,7 +14,11 @@ jobs:
 
       - run: "export"
 
-      - run: "sudo apt install -y build-essential cmake curl zip unzip tar make libgl1-mesa-dev libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev"
+      - run: > 
+        sudo apt install -y 
+          build-essential cmake curl zip unzip tar make 
+          libgl1-mesa-dev libx11-dev libxcursor-dev 
+          libxinerama-dev libxrandr-dev libxi-dev
 
       - name: Create output dir
         run: mkdir out
