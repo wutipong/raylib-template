@@ -12,15 +12,23 @@ project(main)
 
 # add the executable
 add_executable(
-    main 
+    ${PROJECT_NAME} 
 	"main.cpp" 
 )
 
 find_package(raylib CONFIG REQUIRED)
-target_include_directories(main PRIVATE ${RAYLIB_INCLUDE_DIRS})
-target_link_libraries(main PRIVATE ${RAYLIB_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PRIVATE ${RAYLIB_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${RAYLIB_LIBRARIES})
 
-target_compile_features(main PRIVATE cxx_std_20)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
+
+# Checks if OSX and links appropriate frameworks (only required on MacOS)
+if (APPLE)
+    target_link_libraries(${PROJECT_NAME} "-framework IOKit")
+    target_link_libraries(${PROJECT_NAME} "-framework Cocoa")
+    target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
+endif()
+
 
 # file(GLOB_RECURSE GLSL_SOURCE_FILES
 #     "shaders/*.frag"
