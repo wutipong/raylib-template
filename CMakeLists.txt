@@ -18,7 +18,7 @@ add_executable(
 
 find_package(raylib CONFIG REQUIRED)
 target_include_directories(${PROJECT_NAME} PRIVATE ${RAYLIB_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${RAYLIB_LIBRARIES} ${CMAKE_DL_LIBS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${RAYLIB_LIBRARIES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 
